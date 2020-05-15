@@ -1,6 +1,7 @@
 <aura:component controller="LoansController">
     <aura:attribute name="loans" type="Loan__c[]" default="[]"/>
-    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="c:LoanCreated" action="{!c.handleLoanCreated}" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/> 
     <div aria-labelledby="employeehistory">
         
         <fieldset class="slds-box slds-theme--default slds-container--small">

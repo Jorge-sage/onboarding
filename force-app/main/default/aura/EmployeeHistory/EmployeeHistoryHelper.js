@@ -1,12 +1,16 @@
 ({
-    getLoansByEmployee: function (component, employeeId, callback) {
+    getLoansByEmployee: function (component, employeeId) {
         var action = component.get("c.searchLoansByEmployee");
         action.setParams({
             employeeId: employeeId
         });
-        if (callback) {
-            action.setCallback(this, callback);
-        }
+        
+        action.setCallback(this, function(response){
+            debugger;
+            var loans = response.getReturnValue();
+            component.set("v.loans", loans);
+        });
+        
         $A.enqueueAction(action);
-    }
+    },
 })

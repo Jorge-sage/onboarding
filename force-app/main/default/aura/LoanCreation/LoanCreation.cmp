@@ -1,4 +1,5 @@
 <aura:component controller="LoansController">
+    <aura:registerEvent name="LoanCreated" type="c:LoanCreated" />
     <aura:attribute name="newLoan" type="Loan__c" default="{}"/>
     <aura:attribute name="successResponse" type="Boolean" default="false"/>
     <aura:attribute name="errorResponse" type="Boolean" default="false"/>

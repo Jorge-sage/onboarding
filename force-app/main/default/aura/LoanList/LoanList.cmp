@@ -3,7 +3,7 @@
     <aura:attribute name="rows" type="Map[]"/>
     <aura:attribute name="cols" type="Map[]"/>
     <aura:handler name="change" value="{!v.loanList}" action="{!c.loanListChanged}"/>
-       
+          
     <lightning:card title="Loans" iconName="standard:account">
         <lightning:datatable
             data="{!v.rows}"

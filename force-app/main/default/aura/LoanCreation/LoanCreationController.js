@@ -13,6 +13,7 @@
                 component.set("v.newLoan", {});
                 component.set("v.successResponse", true);
                 component.set("v.errorResponse", false);
+                helper.fireCreationEvent(component, loan);
             }
             else{
                 component.set("v.successResponse", false);
