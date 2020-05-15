@@ -10,7 +10,6 @@
         helper.createLoan(component, loan, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {
-                console.log('created');
                 component.set("v.newLoan", {});
                 component.set("v.successResponse", true);
                 component.set("v.errorResponse", false);

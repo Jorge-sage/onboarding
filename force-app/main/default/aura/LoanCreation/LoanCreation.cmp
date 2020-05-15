@@ -1,6 +1,7 @@
 <aura:component controller="LoansController">
     <aura:attribute name="newLoan" type="Loan__c" default="{}"/>
     <aura:attribute name="successResponse" type="Boolean" default="false"/>
+    <aura:attribute name="errorResponse" type="Boolean" default="false"/>
     <div aria-labelledby="newloanform">
         
         <fieldset class="slds-box slds-theme--default slds-container--small">
