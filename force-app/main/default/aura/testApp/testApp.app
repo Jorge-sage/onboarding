@@ -1,4 +1,3 @@
 <aura:application extends="force:slds">
-	<c:LoanCreation></c:LoanCreation>
-    <c:EmployeeHistory></c:EmployeeHistory>
+    <c:EmployeeDashboard/>    
 </aura:application>
