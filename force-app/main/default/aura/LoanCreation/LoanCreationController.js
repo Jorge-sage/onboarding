@@ -6,7 +6,7 @@
         if (!helper.isValidForm(component, 'loanform')) return;
 
         var loan = component.get('v.newLoan');
-        console.log("loan creation: " + JSON.stringify(loan));
+        loan.Amount__c = parseFloat(loan.Amount__c);
         helper.createLoan(component, loan, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {

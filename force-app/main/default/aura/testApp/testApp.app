@@ -1,3 +1,5 @@
 <aura:application extends="force:slds">
-    <c:EmployeeDashboard/>    
+    <c:FinanceDashboard/>
+    <c:EmployeeDashboard/>   
+    
 </aura:application>

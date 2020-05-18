@@ -1,6 +1,6 @@
 ({
-    getLoansByEmployee: function (component, employeeId) {
-        var action = component.get("c.searchLoansByEmployee");
+    getLoansForReview: function (component, employeeId) {
+        var action = component.get("c.getReferredLoans");
         action.setParams({
             employeeId: employeeId
         });

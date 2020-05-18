@@ -1,0 +1,42 @@
+<aura:component controller="LoansController">
+    <aura:attribute name="loanToReview" type="Loan__c" default="{}" />
+    <aura:attribute name="successResponse" type="Boolean" default="false" />
+    <aura:attribute name="errorResponse" type="Boolean" default="false" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <div aria-labelledby="loanToReviewform">
+
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+            <legend id="loanToReviewform" class="slds-text-heading--small slds-p-vertical--medium">
+                Referred Loan
+            </legend>
+            <aura:if isTrue="{!v.successResponse}">
+                <ui:message title="Confirmation" severity="confirm" closable="false">
+                    Loan status updated!.
+                </ui:message>
+            </aura:if>
+            <aura:if isTrue="{!v.errorResponse}">
+                <ui:message title="Error" severity="error" closable="false">
+                    Something didn't work as expected.
+                </ui:message>
+            </aura:if>
+
+            <!--<aura:if isTrue="{!v.loaded}">-->
+            <!--<lightning:recordViewForm recordId="{!v.loanToReview.Id}" objectApiName="Loan__c">-->
+            <lightning:recordViewForm recordId="a013N0000012bDtQAI" objectApiName="Loan__c">
+                <div class="slds-theme_default">
+                    <lightning:outputField fieldName="Name" />
+                    <lightning:outputField fieldName="Amount__c" />
+                    <lightning:outputField fieldName="Months__c" />
+                    <div class="slds-float_right">
+                        <lightning:button label="Reject Loan" class="slds-m-top--medium slds-button_destructive"
+                            variant="brand" onclick="{!c.rejectLoan}" />
+                        <lightning:button label="Approve Loan" class="slds-m-top--medium slds-button_success"
+                            variant="brand" onclick="{!c.approveLoan}" />
+                    </div>
+                </div>
+            </lightning:recordViewForm>
+            <!--</aura:if>-->
+        </fieldset>
+    </div>
+</aura:component>
