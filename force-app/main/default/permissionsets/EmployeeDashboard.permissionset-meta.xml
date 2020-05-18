@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grant access to employee dashboard</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>EmployeeDashboard</label>
+    <tabSettings>
+        <tab>Employee_Dashboard</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>
