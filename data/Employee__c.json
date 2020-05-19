@@ -1,0 +1,14 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Employee__c",
+                "referenceId": "Employee__cRef1"
+            },
+            "Id": "a003N000001wfyVQAQ",
+            "Name": "emp1",
+            "Email__c": "asd@gmail.com",
+            "Salary__c": 35000
+        }
+    ]
+}
