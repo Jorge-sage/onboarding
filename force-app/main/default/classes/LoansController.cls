@@ -3,14 +3,14 @@ public with sharing class LoansController {
     @AuraEnabled
     public static List<Loan__c> searchLoansByEmployee(String employeeId) {
         employeeId = EmployeeHelper.GetEmployeeId();
-        List<Loan__c> loans = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Employee__c =:employeeId ORDER BY LastModifiedDate DESC];
+        List<Loan__c> loans = LoanRepository.GetLoansByEmployeeId(employeeId);
         return loans;
     }
 
     @AuraEnabled
     public static List<Loan__c> getReferredLoans(){
         String status = 'Referred';
-        List<Loan__c> loans = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Status__c =:status ORDER BY LastModifiedDate DESC];
+        List<Loan__c> loans = LoanRepository.GetLoansByStatus(status);
         return loans;
     }
 
@@ -20,12 +20,11 @@ public with sharing class LoansController {
 
         LoanReviewDto loanReviewDto = new LoanReviewDto();
         
-        Loan__c loan = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Id =:loanId];        
+        Loan__c loan = LoanRepository.GetLoanById(loanId);   
         Integer userScore = CreditScoreAdapter.GetUserScoreMock(EmployeeHelper.GetEmployeeId());
         
         loanReviewDto.Loan = loan;
-        loanReviewDto.UserScore = userScore;
-		System.debug(loanReviewDto);        
+        loanReviewDto.UserScore = userScore;    
         return loanReviewDto;
     }
 
@@ -33,20 +32,14 @@ public with sharing class LoansController {
     public static Loan__c saveLoan(Loan__c loan) {
         if(loan == null) return null;
 
-        loan.Status__c = 'Referred';
-		loan.Employee__c = EmployeeHelper.GetEmployeeId();
-        insert loan;
-        return loan;
+        return LoanRepository.CreateLoan(loan);   
     }
 
     @AuraEnabled
     public static Loan__c updateLoanStatus(String loanId, String status) {
         if(loanId == null || status == null) return null;
-
-        Loan__c loan = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Id =:loanId];
-        loan.Status__c = status;
-        update loan;
-        return loan;
+        
+        return LoanRepository.UpdateStatus(loanId, status);
     }       
         
     @AuraEnabled
