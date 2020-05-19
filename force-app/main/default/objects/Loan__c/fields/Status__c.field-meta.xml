@@ -3,17 +3,12 @@
     <fullName>Status__c</fullName>
     <externalId>false</externalId>
     <label>Status</label>
-    <required>false</required>
+    <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>
             <sorted>false</sorted>
-            <value>
-                <fullName>Pending</fullName>
-                <default>true</default>
-                <label>Pending</label>
-            </value>
             <value>
                 <fullName>Approved</fullName>
                 <default>false</default>

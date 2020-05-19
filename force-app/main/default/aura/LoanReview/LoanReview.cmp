@@ -1,11 +1,11 @@
 <aura:component controller="LoansController">
-    <aura:attribute name="loanToReview" type="Loan__c" default="{}" />
     <aura:attribute name="loanId" type="String" />
+    <aura:attribute name="userScore" type="Integer" />
     <aura:attribute name="successResponse" type="Boolean" default="false" />
     <aura:attribute name="errorResponse" type="Boolean" default="false" />
     <aura:attribute name="loaded" type="Boolean" default="false" />
-    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
     <aura:handler event="c:LoanEditEvent" action="{!c.handleEditLoan}" />
+    <aura:registerEvent name="LoanReviewedEvent" type="c:LoanReviewedEvent" />
 
     <aura:if isTrue="{!v.loaded}">
         <div class="slds-card">
@@ -28,14 +28,14 @@
                 <aura:if isTrue="{!v.errorResponse}">
                     <ui:message title="Something didn't work as expected." severity="error" closable="false"> </ui:message>
                 </aura:if>
-                <!--<lightning:recordViewForm recordId="{!v.loanToReview.Id}" objectApiName="Loan__c">-->
+                
                 <lightning:recordViewForm recordId="{!v.loanId}" objectApiName="Loan__c">
                     <div class="slds-theme_default">
                         <lightning:outputField fieldName="Name" />
                         <lightning:outputField fieldName="Amount__c" />
                         <lightning:outputField fieldName="Months__c" />
                         <p><span class="slds-form-element__label">User score</span></p>
-                        <ui:outputText value="{!v.loanId}" />
+                        <ui:outputText value="{!v.userScore}" />
                     </div>
                 </lightning:recordViewForm>
 

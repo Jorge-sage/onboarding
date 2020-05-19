@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
+        <apexClass>CreditScoreAdapter</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CreditScoreService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -17,6 +21,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LoanReviewDto</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>LoansController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -24,11 +32,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Employee__c.Birth_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Loan__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

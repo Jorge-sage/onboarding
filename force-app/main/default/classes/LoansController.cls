@@ -15,12 +15,17 @@ public with sharing class LoansController {
     }
 
     @AuraEnabled
-    public static Loan__c getLoanToReview(String loanId){
+    public static LoanReviewDto getLoanToReview(String loanId){
         if(loanId == null) return null;
 
-        Loan__c loan = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Id =:loanId];
-        //getotherthinghere
-        return loan;
+        LoanReviewDto loanReviewDto = new LoanReviewDto();
+        
+        Loan__c loan = [SELECT Id, Name, Amount__c, Employee__c, Status__c, Months__c FROM Loan__c WHERE Id =:loanId];        
+        Integer userScore = CreditScoreAdapter.GetUserScore('cccc');
+        
+        loanReviewDto.Loan = loan;
+        loanReviewDto.UserScore = userScore;        
+        return loanReviewDto;
     }
 
     @AuraEnabled

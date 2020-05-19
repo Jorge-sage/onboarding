@@ -1,20 +1,20 @@
 ({
     getReviewedLoan: function (component, loanId) {
-        // var action = component.get("c.getLoanToReview");
-        // action.setParams({
-        //     loanId: loanId
-        // });
+         var action = component.get("c.getLoanToReview");
+         action.setParams({
+             loanId: loanId
+         });
         
-        // action.setCallback(this, function(response){
-        //     var loan = response.getReturnValue();
-        //     component.set("v.loanToReview", loan);
-        //     component.set("v.loaded", true);
-        // });
+         action.setCallback(this, function(response){
+             var loan = response.getReturnValue();
+             debugger;
+             
+             component.set("v.userScore", loan.UserScore);
+             component.set("v.loanId", loanId);
+             component.set("v.loaded", true);
+         });
         
-        // $A.enqueueAction(action);
-
-        component.set("v.loanId", loanId);
-        component.set("v.loaded", true);
+         $A.enqueueAction(action);
     },
 
     sendUpdateRequest: function (component, loanId, status, callback) {
@@ -40,7 +40,7 @@
                 component.set("v.loanToReview", {});
                 component.set("v.successResponse", true);
                 component.set("v.errorResponse", false);
-                // helper.fireCreationEvent(component, loan);
+                this.fireReviewedEvent(component, loanId);
             }
             else{
                 component.set("v.successResponse", false);
@@ -48,4 +48,10 @@
             }
         });
     },
+
+    fireReviewedEvent: function (component, id) {
+        var applicationEvent = $A.get("e.c:LoanReviewedEvent");
+        applicationEvent.setParams({ "id": id });   
+        applicationEvent.fire();
+    }
 })
