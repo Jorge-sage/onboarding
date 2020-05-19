@@ -1,9 +1,6 @@
 ({
-    getLoansForReview: function (component, employeeId) {
+    getLoansForReview: function (component) {
         var action = component.get("c.getReferredLoans");
-        action.setParams({
-            employeeId: employeeId
-        });
         
         action.setCallback(this, function(response){
             var loans = response.getReturnValue();

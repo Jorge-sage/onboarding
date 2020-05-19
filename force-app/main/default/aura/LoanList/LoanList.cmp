@@ -5,7 +5,7 @@
     <aura:attribute name="editOption" type="Boolean" default="false"/>
     <aura:handler name="change" value="{!v.loanList}" action="{!c.loanListChanged}"/>
     <aura:registerEvent name="LoanEditEvent" type="c:LoanEditEvent" />
-          
+      
     <lightning:card title="Loans" iconName="standard:account">
         <lightning:datatable
             data="{!v.rows}"

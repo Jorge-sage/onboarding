@@ -9,6 +9,6 @@
 
     handleEditLoan: function (component, event, helper) {
         var loanId = event.getParam("id");
-        helper.getReviewedLoan(component, loanId);
-    },
+        helper.getReviewedLoan(component, loanId);        
+    }
 })

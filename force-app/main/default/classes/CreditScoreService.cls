@@ -11,4 +11,8 @@ global with sharing class CreditScoreService {
         Integer userScore = Integer.valueof((Math.random() * 100));
         return userScore;
     }
+
+    public static Integer GetUserScoreMock() {
+        return Integer.valueof((Math.random() * 100));
+    }
 }

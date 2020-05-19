@@ -1,9 +1,9 @@
 ({
     onInit: function (component, event, helper) {
-        helper.getLoansForReview(component, 'employeeId');
+        helper.getLoansForReview(component);
     },
 
     handleReviewedLoan: function (component, event, helper) {
-        helper.getLoansForReview(component, 'employeeId');
+        helper.getLoansForReview(component);
     },
 })
