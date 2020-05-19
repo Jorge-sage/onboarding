@@ -1,18 +1,18 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
     <lightning:layout horizontalAlign="space" multipleRows="true">
-        <lightning:layoutItem size="4"
-                              mediumDeviceSize="4"
+        <lightning:layoutItem size="3"
+                              mediumDeviceSize="3"
                               padding="around-small">
             <c:LoanDashboardSummary/>
         </lightning:layoutItem>
-        <lightning:layoutItem size="4"
-                              mediumDeviceSize="4"
+        <lightning:layoutItem size="6"
+                              mediumDeviceSize="6"
                               padding="around-small">
             <c:LoanDashboardReview/>
         </lightning:layoutItem>
 
-        <lightning:layoutItem size="4"
-                              mediumDeviceSize="4"
+        <lightning:layoutItem size="3"
+                              mediumDeviceSize="3"
                               padding="around-small">
             <c:LoanReview/>
         </lightning:layoutItem>

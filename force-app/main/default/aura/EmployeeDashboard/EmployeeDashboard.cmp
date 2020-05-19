@@ -1,12 +1,12 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
     <lightning:layout horizontalAlign="space" multipleRows="true">
-        <lightning:layoutItem size="4"
-                              mediumDeviceSize="4"
+        <lightning:layoutItem size="3"
+                              mediumDeviceSize="3"
                               padding="around-small">
             <c:LoanCreation/>
         </lightning:layoutItem>
-        <lightning:layoutItem size="8"
-                              mediumDeviceSize="8"
+        <lightning:layoutItem size="9"
+                              mediumDeviceSize="9"
                               padding="around-small">
             <c:EmployeeHistory/>
         </lightning:layoutItem>

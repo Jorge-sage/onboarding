@@ -2,7 +2,9 @@
     <aura:attribute name="loanList" type="Loan__c[]" default="[]"/>
     <aura:attribute name="rows" type="Map[]"/>
     <aura:attribute name="cols" type="Map[]"/>
+    <aura:attribute name="editOption" type="Boolean" default="false"/>
     <aura:handler name="change" value="{!v.loanList}" action="{!c.loanListChanged}"/>
+    <aura:registerEvent name="LoanEditEvent" type="c:LoanEditEvent" />
           
     <lightning:card title="Loans" iconName="standard:account">
         <lightning:datatable
@@ -10,6 +12,7 @@
             columns="{!v.cols}"
             keyField="Id"
             hideCheckboxColumn="true"
-            showRowNumberColumn="true" />
+            showRowNumberColumn="true"
+            onrowaction="{! c.handleRowAction }"/>
     </lightning:card>
 </aura:component>

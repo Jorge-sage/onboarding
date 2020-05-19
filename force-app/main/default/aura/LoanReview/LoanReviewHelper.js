@@ -1,17 +1,20 @@
 ({
     getReviewedLoan: function (component, loanId) {
-        var action = component.get("c.getLoanToReview");
-        action.setParams({
-            loanId: loanId
-        });
+        // var action = component.get("c.getLoanToReview");
+        // action.setParams({
+        //     loanId: loanId
+        // });
         
-        action.setCallback(this, function(response){
-            var loan = response.getReturnValue();
-            component.set("v.loanToReview", loan);
-            component.set("v.loaded", true);
-        });
+        // action.setCallback(this, function(response){
+        //     var loan = response.getReturnValue();
+        //     component.set("v.loanToReview", loan);
+        //     component.set("v.loaded", true);
+        // });
         
-        $A.enqueueAction(action);
+        // $A.enqueueAction(action);
+
+        component.set("v.loanId", loanId);
+        component.set("v.loaded", true);
     },
 
     sendUpdateRequest: function (component, loanId, status, callback) {
@@ -30,10 +33,9 @@
         component.set("v.successResponse", false);
         component.set("v.errorResponse", false);
         
-        var loan = component.get('v.loanToReview');
-        this.sendUpdateRequest(component, loan.Id, status, function(response){
+        var loanId = component.get('v.loanId');
+        this.sendUpdateRequest(component, loanId, status, function(response){
             var state = response.getState();
-            debugger;
             if (state === "SUCCESS") {
                 component.set("v.loanToReview", {});
                 component.set("v.successResponse", true);
