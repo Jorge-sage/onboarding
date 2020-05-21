@@ -1,3 +1,11 @@
+sfdx force:user:permset:assign -n EmployeeDashboard -u Exercise
+
+sfdx force:user:permset:assign -n FinanceDashboard -u Exercise
+
+sfdx force:data:tree:import -f data/Employee__c.json -u Exercise
+
+
+------
 # Salesforce App
 
 This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
