@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
+        <apexClass>BaseTests</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CreditScoreAdapter</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -26,6 +30,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LoanRepository</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LoanRepositoryTests</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
