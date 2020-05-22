@@ -7,7 +7,6 @@
         
          action.setCallback(this, function(response){
              var loan = response.getReturnValue();
-             debugger;
              
              component.set("v.userScore", loan.UserScore);
              component.set("v.loanId", loanId);

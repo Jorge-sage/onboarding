@@ -42,32 +42,5 @@ public with sharing class LoansController {
         validator.ValidateForUpdateStatus(loanId, status);
         
         return LoanRepository.UpdateStatus(loanId, status);
-    }       
-        
-    @AuraEnabled
-    public static String testRequest(){
-        Http http = new Http();
-        HttpRequest request = new HttpRequest();
-        request.setEndpoint(System.URL.getSalesforceBaseURL().toExternalForm()+'/services/apexrest/CreditScore/'+ EmployeeHelper.GetEmployeeId());
-        request.setMethod('GET');
-        request.setHeader('Authorization', 'OAuth ' + UserInfo.getSessionId());
-        HttpResponse response = http.send(request);
-           
-        System.debug('here we go');
-        if (response.getStatusCode() == 200) {
-            System.debug('works!');
-            Integer result = (Integer) JSON.deserializeUntyped(response.getBody());
-            
-            System.debug(result);
-            System.debug(response.getBody());
-            return response.getBody();
-        }
-        else{
-            Integer reps = response.getStatusCode();
-            
-            System.debug(reps);
-            System.debug(response.getBody());
-            return response.getBody();
-        }
     }
 }

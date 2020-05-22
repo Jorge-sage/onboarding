@@ -18,7 +18,12 @@ public with sharing class CreditScoreAdapter {
         }
     }
 
-    public static Integer GetUserScoreMock(String userId) {
+    /*
+    Onboarding exercise required an http call(above method), despite this was not possible to
+    connect apex aura controller to a restclass apex related to validation Issues. That's why
+    this method is used.
+    */
+    public static Integer GetUserScoreMock(String userId) {        
         return CreditScoreService.GetUserScoreMock();
     }
 }
