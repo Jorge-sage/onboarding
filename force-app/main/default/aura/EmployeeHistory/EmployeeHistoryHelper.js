@@ -1,9 +1,6 @@
 ({
-    getLoansByEmployee: function (component, employeeId) {
+    getLoansByEmployee: function (component) {
         var action = component.get("c.searchLoansByEmployee");
-        action.setParams({
-            employeeId: employeeId
-        });
         
         action.setCallback(this, function(response){
             var loans = response.getReturnValue();

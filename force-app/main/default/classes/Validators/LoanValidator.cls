@@ -25,8 +25,7 @@ public class LoanValidator {
 
     public void ValidateForUpdateStatus(String loanId, String status){
         if(loanId == null || status == null || 
-            String.isBlank(loanId) || String.isBlank(status) ||
-            String.isEmpty(loanId) || String.isEmpty(status)){
+            String.isBlank(loanId) || String.isBlank(status)){
                 throw new ApplicationException(requiredInputs);
             }
     }
