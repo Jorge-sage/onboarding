@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
+        <apexClass>ApplicationException</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BaseTests</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -42,6 +46,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LoanReviewDto</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LoanValidators</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

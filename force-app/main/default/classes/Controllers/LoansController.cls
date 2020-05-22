@@ -29,15 +29,17 @@ public with sharing class LoansController {
     }
 
     @AuraEnabled
-    public static Loan__c saveLoan(Loan__c loan) {
-        if(loan == null) return null;
+    public static Loan__c saveLoan(Loan__c loan) {		
+        LoanValidator validator = new LoanValidator();
+        validator.ValidateForCreate(loan);
 
         return LoanRepository.CreateLoan(loan);   
     }
 
     @AuraEnabled
     public static Loan__c updateLoanStatus(String loanId, String status) {
-        if(loanId == null || status == null) return null;
+        LoanValidator validator = new LoanValidator();
+        validator.ValidateForUpdateStatus(loanId, status);
         
         return LoanRepository.UpdateStatus(loanId, status);
     }       
